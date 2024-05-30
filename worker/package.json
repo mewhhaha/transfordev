@@ -1,9 +1,9 @@
 {
-  "name": "worker",
+  "name": "transfordev",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "upload": "wrangler deploy",
+    "upload": "wrangler deploy --name transfordev-worker",
     "dev": "wrangler dev",
     "lint": "eslint",
     "routes": "little-worker routes"
