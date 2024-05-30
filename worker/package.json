@@ -1,0 +1,26 @@
+{
+  "name": "worker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "upload": "wrangler deploy",
+    "dev": "wrangler dev",
+    "lint": "eslint",
+    "routes": "little-worker routes"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.0.4",
+    "typescript-eslint": "^7.11.0",
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "@mewhhaha/little-router-plugin-data": "^1.0.1",
+    "@mewhhaha/little-router-plugin-query": "^1.0.1",
+    "@mewhhaha/little-worker": "^0.1.1",
+    "arktype": "1.0.29-alpha"
+  }
+}
