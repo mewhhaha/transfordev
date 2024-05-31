@@ -15,12 +15,12 @@
     "prettier": "^3.2.5",
     "typescript": "^5.0.4",
     "typescript-eslint": "^7.11.0",
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.57.2"
   },
   "dependencies": {
-    "@mewhhaha/little-router-plugin-data": "^1.0.1",
-    "@mewhhaha/little-router-plugin-query": "^1.0.1",
-    "@mewhhaha/little-worker": "^0.1.1",
+    "@mewhhaha/little-router-plugin-data": "^1.0.2",
+    "@mewhhaha/little-router-plugin-query": "^1.0.2",
+    "@mewhhaha/little-worker": "^0.1.2",
     "arktype": "1.0.29-alpha"
   }
 }

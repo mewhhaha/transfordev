@@ -1,0 +1,7 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "transfordev-worker"
+compatibility_date = "2024-05-24"
+
+[[services]]
+binding = "WORKER"
+service = "transfordev-worker"
