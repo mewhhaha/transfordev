@@ -8,6 +8,7 @@ type SetTranslation = {
 };
 
 type Translation = {
+  language: string;
   value: string;
   date: Date;
 };
@@ -49,7 +50,7 @@ export class DurableObjectTranslation extends DurableObject<Env> {
       limit: 1,
     });
     const [result] = [...latest.values()];
-    return result?.date ?? new Date(0);
+    return result;
   }
 
   async setup(from: string, to: string[], translation: SetTranslation) {
@@ -69,7 +70,7 @@ export class DurableObjectTranslation extends DurableObject<Env> {
 
     if (date) {
       const latest = await this.#latest(language);
-      if (date < latest) {
+      if (latest && date < latest.date) {
         return { error: true, message: "old_value" } as const;
       }
     } else {
@@ -78,12 +79,22 @@ export class DurableObjectTranslation extends DurableObject<Env> {
 
     const dateKey = this.#dateKey(language, date);
 
-    this.ctx.storage.put<Translation>(dateKey, { value, date });
+    this.ctx.storage.put<Translation>(dateKey, { value, date, language });
 
     return {
       error: false,
       data: { language, from: this.#from, to: this.#to, value, date, path },
     } as const;
+  }
+
+  async translations() {
+    const translations: Translation[] = [];
+    for (const language of [this.#from, ...this.#to]) {
+      let latest = await this.#latest(language);
+      latest ??= { language, value: "", date: new Date() };
+      translations.push(latest);
+    }
+    return translations;
   }
 
   async recent(language: string, { limit }: { limit: number }) {

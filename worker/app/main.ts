@@ -2,6 +2,7 @@ import { router } from "./routes/_router";
 import { DurableObjectTranslation } from "./durable-object/translation";
 
 export { DurableObjectTranslation } from "./durable-object/translation";
+export { type Routes } from "./routes/_router";
 
 declare global {
   type AutoTranslationEvent = {
