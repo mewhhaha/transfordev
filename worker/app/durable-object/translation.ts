@@ -64,7 +64,7 @@ export class DurableObjectTranslation extends DurableObject<Env> {
   }
 
   async set({ language, date, path, value }: SetTranslation) {
-    if (this.#from !== language || !this.#from.includes(language)) {
+    if (this.#from !== language && !this.#to.includes(language)) {
       return { error: true, message: "unlisted_language" } as const;
     }
 

@@ -33,7 +33,7 @@ export default route(
       };
 
       await Promise.all([
-        publish(env.CACHE, data),
+        publish(env.LIST, data),
         // Only request translations if we update the base language
         data.from === language
           ? translate(env.QUEUE, result.data.to, data)

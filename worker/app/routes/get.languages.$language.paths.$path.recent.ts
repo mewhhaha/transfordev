@@ -11,6 +11,6 @@ export default route(
     const translation = $get(env.TRANSLATION, { name: path });
     const result = await translation.recent(language, { limit: 10 });
 
-    return ok(200, result);
+    return ok(200, { recent: result });
   },
 );

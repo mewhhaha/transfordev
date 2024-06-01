@@ -7,5 +7,5 @@ export default route("/translations/:path", [], async ({ params }, env) => {
   const translation = $get(env.TRANSLATION, { name: path });
   const result = await translation.translations();
 
-  return ok(200, result);
+  return ok(200, { translations: result });
 });

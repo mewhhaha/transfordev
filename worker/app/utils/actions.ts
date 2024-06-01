@@ -25,7 +25,7 @@ export const translate = async (
       from,
       to: language,
       path,
-      date,
+      date: date.toISOString(),
       value,
     });
   }
@@ -42,13 +42,19 @@ export const publish = async (
   }
 
   await kv.put(key, value, {
-    metadata: { path, date: date.toISOString(), short } satisfies CacheMetadata,
+    metadata: {
+      path,
+      date: date.toISOString(),
+      short,
+      language: from,
+    } satisfies ListMetadata,
   });
 };
 
-export type CacheMetadata = {
+export type ListMetadata = {
   short: string;
   path: string;
+  language: string;
   date: string;
 };
 

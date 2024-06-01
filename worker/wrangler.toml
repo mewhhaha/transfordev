@@ -17,7 +17,7 @@ new_classes = ["DurableObjectTranslation"]
 
 
 [[kv_namespaces]]
-binding = "CACHE"
+binding = "LIST"
 id = "818a290d586942da8bf50c046d9b2544"
 
 

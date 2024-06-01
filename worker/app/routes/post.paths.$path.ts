@@ -30,8 +30,9 @@ export default route(
         path,
         value,
       };
+
       await Promise.all([
-        publish(env.CACHE, data),
+        publish(env.LIST, data),
         translate(env.QUEUE, to, data),
       ]);
     };
