@@ -35,11 +35,12 @@ export default function Route() {
         <Suspense fallback="Loading...">
           <Await resolve={deferred}>
             {({ translations }) => {
-              const sorted = [translations[0], ...translations.slice(1)].sort(
-                (a, b) => {
+              const sorted = [
+                translations[0],
+                ...translations.slice(1).sort((a, b) => {
                   return a.language < b.language ? -1 : 1;
-                },
-              );
+                }),
+              ];
 
               return sorted.map(({ language, value, date }) => {
                 return (
@@ -50,7 +51,7 @@ export default function Route() {
                       }}
                       className="flex items-center"
                     >
-                      <h3 className="w-12 text-left flex-none text-sm">
+                      <h3 className="w-12 flex-none text-left text-sm">
                         {language}
                       </h3>
                       <p className="font-medium">{value || "---"}</p>

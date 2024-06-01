@@ -118,11 +118,10 @@ export default function Index() {
         <label htmlFor="value" className="mb-1 mt-4 block font-semibold">
           Translation
         </label>
-        <input
+        <textarea
           id="value"
           name="value"
           className="rounded border-2 border-gray-900 px-2 py-1"
-          type="text"
           placeholder="English translation"
         />
         <button className="my-4 block rounded border-2 border-black px-2 py-1 font-bold">
